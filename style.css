@@ -1,56 +1,51 @@
-
-
 nav {
-    height: 50px;
-    background-color: rgb(174, 94, 211);
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    border-style: solid;
-    border-color: purple;
-    align-items: center;
-   
+  height: 50px;
+  background-color: rgb(174, 94, 211);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-style: solid;
+  border-color: purple;
+  align-items: center;
 }
 
 main {
-    background-color: rgb(253, 253, 153);
+  background-color: rgb(253, 253, 153);
 }
 
 .panels {
-    display: flex;
-
-    justify-content: space-between;
-    align-items: column;
-    
-    text-align: center;
-    height: 450px;
-    padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: column;
+  text-align: center;
+  height: 450px;
+  padding: 15px;
 }
 
 .panel1 {
-    padding: 10px;
-    border-style: solid;
-    background-color: white;
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  padding: 10px;
+  border-style: solid;
+  background-color: white;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .APIEl {
-    Margin-top: 20px;
+  margin-top: 20px;
 }
 
 .panel2 {
-    border-style: solid;
-    background-color: white;
-    width: 600px;
+  border-style: solid;
+  background-color: white;
+  width: 600px;
 }
 
 footer {
-    background-color: rgb(240, 159, 233);
-    border-style: solid;
-    border-color: purple;
-    padding: 20px;
-    height: 20px;
+  background-color: rgb(240, 159, 233);
+  border-style: solid;
+  border-color: purple;
+  padding: 20px;
+  height: 20px;
 }
