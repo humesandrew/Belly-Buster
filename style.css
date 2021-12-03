@@ -40,6 +40,18 @@ main {
   border-style: solid;
   background-color: white;
   width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: column;
+  justify-content: center;
+  
+ 
+}
+
+#map { 
+  height: 300px; 
+  width: 300px;
+  margin: 50px;
 }
 
 footer {
