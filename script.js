@@ -46,7 +46,7 @@ getBrewery();
 
 var map = L.map("map").setView([51.505, -0.09], 13);
 L.tileLayer(
-  "https://api.mapbox.com/styles/v1/London/tiles/0/0/0?access_token=pk.eyJ1IjoiaHVtZXMtYW5kcmV3IiwiYSI6ImNrd3B3YmR5eTBlb2gyeHJ1Z2plbWM0b20ifQ.KXg5Wlkn2dco0TxNZN0k-g",
+  "https://api.mapbox.com/styles/v1/london/tiles/0/0/0?access_token=pk.eyJ1IjoiaHVtZXMtYW5kcmV3IiwiYSI6ImNrd3B3YmR5eTBlb2gyeHJ1Z2plbWM0b20ifQ.KXg5Wlkn2dco0TxNZN0k-g",
   {
     attribution:
       'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -60,7 +60,7 @@ L.tileLayer(
 
 function displayMap () {
     var getMap = document.getElementById("map");
-    getMap.textContent = map;
+   
     
 }
 
