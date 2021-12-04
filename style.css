@@ -1,16 +1,16 @@
 nav {
   height: 50px;
-  background-color: rgb(174, 94, 211);
+  background-color: #FF8360;
   display: flex;
   justify-content: center;
   text-align: center;
   border-style: solid;
-  border-color: purple;
+  border-color: #534D56;
   align-items: center;
 }
 
 main {
-  background-color: rgb(253, 253, 153);
+  background-color: #2B2D42;
 }
 
 .panels {
@@ -25,7 +25,7 @@ main {
 .panel1 {
   padding: 10px;
   border-style: solid;
-  background-color: white;
+  background-color: #028090;
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ main {
 
 .panel2 {
   border-style: solid;
-  background-color: white;
+  background-color: #F8F4E3;
   width: 600px;
   display: flex;
   flex-wrap: wrap;
@@ -55,9 +55,35 @@ main {
 }
 
 footer {
-  background-color: rgb(240, 159, 233);
+  background-color: #2B2D42;
   border-style: solid;
-  border-color: purple;
+  border-color: #FF8360;
   padding: 20px;
   height: 20px;
+}
+
+.panel2 a:hover{
+  color: #028090
+}
+
+.panel2 a::before{
+  content:" ";
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #028090;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 200ms;
+}
+
+.panel2 a:hover::before {
+  width:100%
+}
+
+html{
+  scroll-behaviot: smooth;
 }
