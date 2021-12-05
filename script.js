@@ -1,6 +1,6 @@
 function getBeers() {
   fetch(
-    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=denver",
+    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=denver&per_page=5",
     {
       method: "GET",
       headers: {
@@ -9,17 +9,27 @@ function getBeers() {
       },
     }
   )
+
     .then((response) => {
       return response.json();
     })
     .then((data) => {
       console.log(data);
+    for (var i = 0; data.length > 0; i++) {
+      var APIName = document.createElement("li");
+      APIName.textContent = data[i].name;
+      APIElBody.appendChild(APIName);
+      }
     })
+
+
     .catch((err) => {
       console.error(err);
     });
+
+   
 }
-getBeers();
+
 
 function getBrewery() {
   fetch(
@@ -44,13 +54,17 @@ function getBrewery() {
 }
 getBrewery();
 
+function displayCity() {
 
+
+}
 //Saving search inputs as an array and then putting in local storage. Adding a button for each history item.//
 ////////////////////////////////////////////////////////////////
 
 var city = [];
 localStorage.setItem("City", JSON.stringify(city));
 var submitBtn = document.getElementById("submitBtn");
+var APIElBody = document.getElementById("APIElBody");
 
 submitBtn.onclick = function submitCity() {
   city.push(cityInput.value.trim());
@@ -59,6 +73,8 @@ submitBtn.onclick = function submitCity() {
   var displaycityInput = document.getElementById("APIEl");
   APIEl.innerHTML = cityInput.value;
   renderCityHistory();
+  getBeers();
+  displayCity();
 }
 
 var localHistoryContainer = document.getElementById("localStorage");
@@ -72,6 +88,7 @@ btn.textContent = city[i];
 localHistoryContainer.appendChild(btn);
   }
   }
+// end local storage stuff// 
 
 
 
@@ -81,8 +98,7 @@ localHistoryContainer.appendChild(btn);
 
 
 
-
-
+// for Map panel //  
 
 var map = L.map("map").setView([39.7392, -104.9903], 12);
 L.tileLayer(
@@ -115,3 +131,6 @@ displayMap();
 
 var mapBoxAPIKey =
   "pk.eyJ1IjoiaHVtZXMtYW5kcmV3IiwiYSI6ImNrd3B3YmR5eTBlb2gyeHJ1Z2plbWM0b20ifQ.KXg5Wlkn2dco0TxNZN0k-g";
+
+
+  // for map panel //
