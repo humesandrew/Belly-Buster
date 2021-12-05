@@ -1,6 +1,6 @@
 function getBeers() {
   fetch(
-    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=denver&per_page=5",
+    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" + cityInput.value + "&per_page=10",
     {
       method: "GET",
       headers: {
@@ -16,7 +16,8 @@ function getBeers() {
     .then((data) => {
       console.log(data);
     for (var i = 0; data.length > 0; i++) {
-      var APIName = document.createElement("li");
+      var APIName = document.createElement("button");
+      APIName.setAttribute("type", "button");
       APIName.textContent = data[i].name;
       APIElBody.appendChild(APIName);
       }
@@ -71,7 +72,7 @@ submitBtn.onclick = function submitCity() {
   localStorage.setItem("City", JSON.stringify(city));
   console.log(JSON.stringify(city));
   var displaycityInput = document.getElementById("APIEl");
-  APIEl.innerHTML = cityInput.value;
+  APIEl.innerHTML = "Showing breweries in: " + cityInput.value;
   renderCityHistory();
   getBeers();
   displayCity();
