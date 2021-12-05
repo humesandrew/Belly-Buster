@@ -45,18 +45,33 @@ function getBrewery() {
 getBrewery();
 
 
-var city = [];
+//Saving search inputs as an array and then putting in local storage. Adding a button for each history item.//
+////////////////////////////////////////////////////////////////
 
+var city = [];
+localStorage.setItem("City", JSON.stringify(city));
 var submitBtn = document.getElementById("submitBtn");
 
 submitBtn.onclick = function submitCity() {
+  city.push(cityInput.value.trim());
   localStorage.setItem("City", JSON.stringify(city));
-  city.push(cityInput.value);
-  
-
   console.log(JSON.stringify(city));
+  var displaycityInput = document.getElementById("APIEl");
+  APIEl.innerHTML = cityInput.value;
+  renderCityHistory();
 }
 
+var localHistoryContainer = document.getElementById("localStorage");
+function renderCityHistory() {
+  for (var i = city.length - 1; i >= 0; i--) {
+var btn = document.createElement("button");
+btn.setAttribute("type", "button");
+btn.classList.add("history-btn", "btn-history");
+btn.setAttribute("data-search", city[i]);
+btn.textContent = city[i];
+localHistoryContainer.appendChild(btn);
+  }
+  }
 
 
 

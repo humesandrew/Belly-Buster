@@ -49,8 +49,8 @@ main {
 }
 
 #map { 
-  height: 300px; 
-  width: 300px;
+  height: 350px; 
+  width: 350px;
   margin: 50px;
 }
 
@@ -58,6 +58,8 @@ footer {
   background-color: rgb(240, 159, 233);
   border-style: solid;
   border-color: purple;
-  padding: 20px;
-  height: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
