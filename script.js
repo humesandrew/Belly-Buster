@@ -18,8 +18,10 @@ function getBeers() {
     for (var i = 0; data.length > 0; i++) {
       var APIName = document.createElement("button");
       APIName.setAttribute("type", "button");
+      APIName.setAttribute("href", "https://www.google.com");
       APIName.textContent = data[i].name;
       APIElBody.appendChild(APIName);
+      
       }
     })
 
