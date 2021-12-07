@@ -58,8 +58,6 @@ function getBrewery() {
 getBrewery();
 
 function displayCity() {
-
-
 }
 //Saving search inputs as an array and then putting in local storage. Adding a button for each history item.//
 ////////////////////////////////////////////////////////////////
@@ -97,10 +95,6 @@ localHistoryContainer.appendChild(btn);
 
 
 
-
-
-
-
 // for Map panel //  
 
 var map = L.map("map").setView([39.7392, -104.9903], 12);
@@ -117,17 +111,24 @@ L.tileLayer(
   }
 ).addTo(map);
 
+
+
+var popup = L.popup();
+
 function onMapClick(e) {
-  popup
-      .setLatLng(e.latlng)
-      .setContent("You clicked the map at " + e.latlng.toString())
-      .openOn(map);
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+
+  
 }
 
 map.on('click', onMapClick);
 
 function displayMap () {
-    var getMap = document.getElementById("map");   
+
+    var getMap = document.getElementById("map");
 }
 
 displayMap();
