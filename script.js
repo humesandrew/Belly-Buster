@@ -1,6 +1,8 @@
 function getBeers() {
   fetch(
-    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" + cityInput.value + "&per_page=10",
+    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" +
+    cityInput.value +
+    "&per_page=10",
     {
       method: "GET",
       headers: {
@@ -9,30 +11,27 @@ function getBeers() {
       },
     }
   )
-
     .then((response) => {
       return response.json();
     })
     .then((data) => {
       console.log(data);
-    for (var i = 0; data.length > 0; i++) {
-      var APIName = document.createElement("button");
-      APIName.setAttribute("type", "button");
-      APIName.setAttribute("href", "https://www.google.com");
-      APIName.textContent = data[i].name;
-      APIElBody.appendChild(APIName);
-      
+      for (var i = 0; data.length > 0; i++) {
+        var APIName = document.createElement("button");
+        APIName.setAttribute("type", "button");
+        // var link = data[i].website_url;//
+        APIName.setAttribute("href", data[i].website_url);
+        APIName.textContent = data[i].name;
+        APIElBody.appendChild(APIName);
+        
       }
     })
+      
 
-
-    .catch((err) => {
-      console.error(err);
-    });
-
-   
+    .catch ((err) => {
+  console.error(err);
+});
 }
-
 
 function getBrewery() {
   fetch(
@@ -57,8 +56,10 @@ function getBrewery() {
 }
 getBrewery();
 
-function displayCity() {
+
+function displayCity() { 
 }
+
 //Saving search inputs as an array and then putting in local storage. Adding a button for each history item.//
 ////////////////////////////////////////////////////////////////
 
@@ -76,26 +77,24 @@ submitBtn.onclick = function submitCity() {
   renderCityHistory();
   getBeers();
   displayCity();
-}
+};
 
 var localHistoryContainer = document.getElementById("localStorage");
 function renderCityHistory() {
   for (var i = city.length - 1; i >= 0; i--) {
-var btn = document.createElement("button");
-btn.setAttribute("type", "button");
-btn.classList.add("history-btn", "btn-history");
-btn.setAttribute("data-search", city[i]);
-btn.textContent = city[i];
-localHistoryContainer.appendChild(btn);
+    var btn = document.createElement("button");
+    btn.setAttribute("type", "button");
+    btn.classList.add("history-btn", "btn-history");
+    btn.setAttribute("data-search", city[i]);
+    btn.textContent = city[i];
+    localHistoryContainer.appendChild(btn);
   }
-  }
-// end local storage stuff// 
+}
+// end local storage stuff//
 
 
+// working with leaflet api/////
 
-
-
-// for Map panel //  
 
 var map = L.map("map").setView([39.7392, -104.9903], 12);
 L.tileLayer(
@@ -114,27 +113,26 @@ L.tileLayer(
 
 
 var popup = L.popup();
-
 function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(map);
 
-  
 }
-
 map.on('click', onMapClick);
-
 function displayMap () {
 
+  
     var getMap = document.getElementById("map");
 }
-
 displayMap();
-
 var mapBoxAPIKey =
   "pk.eyJ1IjoiaHVtZXMtYW5kcmV3IiwiYSI6ImNrd3B3YmR5eTBlb2gyeHJ1Z2plbWM0b20ifQ.KXg5Wlkn2dco0TxNZN0k-g";
 
+function addPin() {
+  var marker = L.marker([39.7392, -104.9903]).addTo(map);
+  marker.bindPopup("<b>Brewery Name</b><br>Possibly address").openPopup();
+}
 
-  // for map panel //
+addPin();
