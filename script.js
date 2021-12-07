@@ -1,6 +1,6 @@
 function getBeers() {
   fetch(
-    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_state=CO",
+    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" + cityInput.value + "&per_page=10",
     {
       method: "GET",
       headers: {
@@ -9,17 +9,30 @@ function getBeers() {
       },
     }
   )
+
     .then((response) => {
       return response.json();
     })
     .then((data) => {
       console.log(data);
+    for (var i = 0; data.length > 0; i++) {
+      var APIName = document.createElement("button");
+      APIName.setAttribute("type", "button");
+      APIName.setAttribute("href", "https://www.google.com");
+      APIName.textContent = data[i].name;
+      APIElBody.appendChild(APIName);
+      
+      }
     })
+
+
     .catch((err) => {
       console.error(err);
     });
+
+   
 }
-getBeers();
+
 
 function getBrewery() {
   fetch(
@@ -44,6 +57,46 @@ function getBrewery() {
 }
 getBrewery();
 
+function displayCity() {
+}
+//Saving search inputs as an array and then putting in local storage. Adding a button for each history item.//
+////////////////////////////////////////////////////////////////
+
+var city = [];
+localStorage.setItem("City", JSON.stringify(city));
+var submitBtn = document.getElementById("submitBtn");
+var APIElBody = document.getElementById("APIElBody");
+
+submitBtn.onclick = function submitCity() {
+  city.push(cityInput.value.trim());
+  localStorage.setItem("City", JSON.stringify(city));
+  console.log(JSON.stringify(city));
+  var displaycityInput = document.getElementById("APIEl");
+  APIEl.innerHTML = "Showing breweries in: " + cityInput.value;
+  renderCityHistory();
+  getBeers();
+  displayCity();
+}
+
+var localHistoryContainer = document.getElementById("localStorage");
+function renderCityHistory() {
+  for (var i = city.length - 1; i >= 0; i--) {
+var btn = document.createElement("button");
+btn.setAttribute("type", "button");
+btn.classList.add("history-btn", "btn-history");
+btn.setAttribute("data-search", city[i]);
+btn.textContent = city[i];
+localHistoryContainer.appendChild(btn);
+  }
+  }
+// end local storage stuff// 
+
+
+
+
+
+// for Map panel //  
+
 var map = L.map("map").setView([39.7392, -104.9903], 12);
 L.tileLayer(
   'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmx1ZWFuZHluIiwiYSI6ImNrd3M0d3AycTEzMDgzMG80M2x0N3UzamcifQ.4QF7f-50GGZpRGTKZUiRvA',
@@ -67,16 +120,21 @@ function onMapClick(e) {
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(map);
+
+  
 }
 
 map.on('click', onMapClick);
 
 function displayMap () {
+
     var getMap = document.getElementById("map");
-    
 }
 
 displayMap();
 
 var mapBoxAPIKey =
   "pk.eyJ1IjoiaHVtZXMtYW5kcmV3IiwiYSI6ImNrd3B3YmR5eTBlb2gyeHJ1Z2plbWM0b20ifQ.KXg5Wlkn2dco0TxNZN0k-g";
+
+
+  // for map panel //

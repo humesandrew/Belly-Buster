@@ -22,9 +22,15 @@ crossorigin=""></script>
 </nav>
 
 <container class="panels">
+
 <div class="panel1"><h3>What city do you want to see breweries in?</h3>
-    <input class="city" id="city"><button>Submit</button></input>
-    <div class="APIEl">This is an API element</div>
+    <input class="cityInput" id="cityInput" type="text" placeholder="Type city name and press submit.">
+        <button class="submitBtn" id="submitBtn">Submit</button>
+    </input>
+    <div class="APIEl" id="APIEl">Showing results for: </div>
+    <div class="APIElBody" id="APIElBody"> </div>
+
+
 </div>
 
 <div class="panel2" id="panel2">Welcome to our built in navigations using leaflet!
@@ -36,7 +42,7 @@ crossorigin=""></script>
 
 </main>
 
-<footer> This is for Local Storage results</footer>
+<footer id="localStorage"> <h3>Recent searches:  </h3></footer>
 </body>
 
 <script src="script.js"></script>
