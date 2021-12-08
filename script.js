@@ -1,8 +1,6 @@
 function getBeers() {
   fetch(
-    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" +
-    cityInput.value +
-    "&per_page=10",
+    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" + cityInput.value + "&per_page=10",
     {
       method: "GET",
       headers: {
@@ -16,47 +14,61 @@ function getBeers() {
     })
     .then((data) => {
       console.log(data);
-      for (var i = 0; data.length > 0; i++) {
-        var APIName = document.createElement("button");
-        APIName.setAttribute("type", "button");
-        // var link = data[i].website_url;//
-        APIName.setAttribute("href", data[i].website_url);
-        APIName.textContent = data[i].name;
-        APIElBody.appendChild(APIName);
+      for (var i = 0; i < data.length; i++) {
+          var APIName = document.createElement("button");
+          APIName.setAttribute("type", "button");
+          APIName.setAttribute("href", data[i].website_url);
+          APIName.textContent = data[i].name;
+          APIName.setAttribute("Latitude", data[i].latitude);
+          APIName.setAttribute("Longitude", data[i].longitude);
+          APIElBody.appendChild(APIName);
+       
+          console.log(data[i].name);
+          
         
+
+        // APIName.addEventListener("click", console.log("hello"));
+        // var APIStreet = data[i].street;
+        // var APILatitude = data[i].latitude;
+        // var APILongitude = data[i].longitude;
+        // function displayCoordinates() {
+        //   console.log(APILatitude);
+        //   console.log(APILongitude);
+        //   console.log(APIStreet)
+        //   }
       }
     })
-      
-
     .catch ((err) => {
   console.error(err);
 });
 }
 
-function getBrewery() {
-  fetch(
-    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries/10-barrel-brewing-co-denver-denver",
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com",
-        "x-rapidapi-key": "e303ab8e98msh1c7a974ed999e49p1872ddjsne9f8e2e5a276",
-      },
-    }
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-}
-getBrewery();
 
-function displayCity() { }
+
+// function getBrewery() {
+//   fetch(
+//     "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries/10-barrel-brewing-co-denver-denver",
+//     {
+//       method: "GET",
+//       headers: {
+//         "x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com",
+//         "x-rapidapi-key": "e303ab8e98msh1c7a974ed999e49p1872ddjsne9f8e2e5a276",
+//       },
+//     }
+//   )
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// }
+// getBrewery();
+
+
 //Saving search inputs as an array and then putting in local storage. Adding a button for each history item.//
 ////////////////////////////////////////////////////////////////
 
@@ -73,7 +85,6 @@ submitBtn.onclick = function submitCity() {
   APIEl.innerHTML = "Showing breweries in: " + cityInput.value;
   renderCityHistory();
   getBeers();
-  displayCity();
 };
 
 var localHistoryContainer = document.getElementById("localStorage");
