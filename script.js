@@ -1,4 +1,6 @@
-
+// performing API call. //
+// returning data. Making a list of results as buttons.// //////////////////////
+// saving variables for use in Leafly API map// 
 
 function getBeers() {
   fetch(
@@ -50,34 +52,36 @@ function getBeers() {
 });
 }
 
-function getBrewery() {
-  fetch(
-    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries/10-barrel-brewing-co-denver-denver",
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com",
-        "x-rapidapi-key": "e303ab8e98msh1c7a974ed999e49p1872ddjsne9f8e2e5a276",
-      },
-    }
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-}
-getBrewery();
+
+//we didn't end up using below// 
+
+// function getBrewery() {
+//   fetch(
+//     "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries/10-barrel-brewing-co-denver-denver",
+//     {
+//       method: "GET",
+//       headers: {
+//         "x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com",
+//         "x-rapidapi-key": "e303ab8e98msh1c7a974ed999e49p1872ddjsne9f8e2e5a276",
+//       },
+//     }
+//   )
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// }
+// getBrewery();
+//////
 
 
-function displayCity() { 
-}
 
-//Saving search inputs as an array and then putting in local storage. Adding a button for each history item.//
+//Saving search inputs as an array and then putting in local storage//
 ////////////////////////////////////////////////////////////////
 
 var city = [];
@@ -93,24 +97,40 @@ submitBtn.onclick = function submitCity() {
   APIEl.innerHTML = "Showing breweries in: " + cityInput.value;
   renderCityHistory();
   getBeers();
-  displayCity();
 };
 
-
-
+//creating a button for the recent history results// 
 var localHistoryContainer = document.getElementById("localStorage");
 function renderCityHistory() {
   localHistoryContainer.textContent = '';
   for (var i = city.length - 1; i >= 0; i--) {
     var btn = document.createElement("button");
     btn.setAttribute("type", "button");
-    btn.classList.add("history-btn", "btn-history");
+    btn.classList.add("history-btn");
     btn.setAttribute("data-search", city[i]);
     btn.textContent = city[i];
+    
+    btn.addEventListener("click", resubmitCity);
     localHistoryContainer.appendChild(btn);
   }
 }
-// end local storage stuff//
+
+
+//creating a function to resubmit based on the city history button/////////////////
+
+function resubmitCity() {
+  event.preventDefault();
+  var searchResult = this.getAttribute("data-search");
+  var displaycityInput = document.getElementById("APIEl");
+  APIEl.innerHTML = "Showing breweries in: " + searchResult;
+ function changeCityInput() {
+  cityInput.value = searchResult;
+  
+ }
+ changeCityInput();
+ getBeers();
+}
+
 
 
 // working with leaflet api/////
@@ -154,4 +174,4 @@ function addPin(latitude, longitude) {
   marker.bindPopup("<b>Brewery Name</b><br>Possibly address").openPopup();
 }
 
-addPin(39.7932, -104.9903);
+addPin();
