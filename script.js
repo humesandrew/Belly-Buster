@@ -4,9 +4,7 @@
 
 function getBeers() {
   fetch(
-    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" +
-    cityInput.value +
-    "&per_page=10",
+    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" + cityInput.value + "&per_page=10",
     {
       method: "GET",
       headers: {
@@ -20,6 +18,30 @@ function getBeers() {
     })
     .then((data) => {
       console.log(data);
+ Adding-button-functionality
+      for (var i = 0; i < data.length; i++) {
+          var APIName = document.createElement("button");
+          APIName.setAttribute("type", "button");
+          APIName.setAttribute("href", data[i].website_url);
+          APIName.textContent = data[i].name;
+          APIName.setAttribute("Latitude", data[i].latitude);
+          APIName.setAttribute("Longitude", data[i].longitude);
+          APIElBody.appendChild(APIName);
+       
+          console.log(data[i].name);
+          
+        
+
+        // APIName.addEventListener("click", console.log("hello"));
+        // var APIStreet = data[i].street;
+        // var APILatitude = data[i].latitude;
+        // var APILongitude = data[i].longitude;
+        // function displayCoordinates() {
+        //   console.log(APILatitude);
+        //   console.log(APILongitude);
+        //   console.log(APIStreet)
+        //   }
+
       APIElBody.textContent = '';
       for (var i = 0; i < data.length; i++) {
         
@@ -43,17 +65,21 @@ function getBeers() {
 
         })
 
+
       }
     })
-      
-
     .catch ((err) => {
   console.error(err);
 });
 }
 
 
+
 //we didn't end up using below// 
+
+
+
+
 
 // function getBrewery() {
 //   fetch(
@@ -77,11 +103,19 @@ function getBeers() {
 //     });
 // }
 // getBrewery();
-//////
+
+
 
 
 
 //Saving search inputs as an array and then putting in local storage//
+
+function displayCity() { 
+}
+
+
+//Saving search inputs as an array and then putting in local storage. Adding a button for each history item.//
+
 ////////////////////////////////////////////////////////////////
 
 var city = [];
