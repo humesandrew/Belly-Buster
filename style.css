@@ -1,16 +1,19 @@
 nav {
-  height: 50px;
+  height: 95px;
   background-color: #FF8360;
+  
   display: flex;
   justify-content: center;
   text-align: center;
   border-style: solid;
   border-color: #534D56;
   align-items: center;
+  
 }
 
 main {
   background-color: #2B2D42;
+  height: 100%;
 }
 
 .panels {
@@ -25,52 +28,49 @@ main {
 .panel1 {
   padding: 10px;
   border-style: solid;
+  border-radius: 10px;
   background-color: #028090;
-  width: 600px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.APIEl {
-  margin-top: 20px;
-}
 
-.panel2 {
+
+
+/* .panel2 {
   border-style: solid;
   background-color: #F8F4E3;
   width: 600px;
   display: flex;
   flex-wrap: wrap;
   align-items: column;
-  justify-content: center;
-  
- 
-}
+  justify-content: space-between;
+} */
 
-#map { 
+/* #map { 
   height: 350px; 
   width: 350px;
   margin: 50px;
-}
+} */
 
 footer {
   background-color: #2B2D42;
-  border-style: solid;
-
-  border-color: purple;
   padding: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: flex-start;
   justify-content: space-around;
 }
 
-#APIElBody {
+
+
+.APIElBody {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  border-color: #FF8360;
+  justify-content: row;
+  /* align-items: center; */
+  background-image: url("https://www.piedmont.org/living-better/_controls/media/BlogImages/iStock_000049664402_470x260.jpg");
   padding: 20px;
   height: 20px;
 }
