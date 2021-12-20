@@ -8,7 +8,7 @@ nav {
   border-style: solid;
   border-color: #534D56;
   align-items: center;
-  
+ 
 }
 
 main {
@@ -71,6 +71,7 @@ footer {
   justify-content: row;
   /* align-items: center; */
   background-image: url("https://www.piedmont.org/living-better/_controls/media/BlogImages/iStock_000049664402_470x260.jpg");
+  background-size: cover;
   padding: 20px;
   height: 20px;
 }
