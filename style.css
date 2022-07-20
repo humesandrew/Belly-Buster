@@ -80,6 +80,7 @@ footer {
   background-image: url("https://www.piedmont.org/living-better/_controls/media/BlogImages/iStock_000049664402_470x260.jpg");
   padding: 20px;
   height: 20px;
+  overflow: scroll;
 }
 
 
