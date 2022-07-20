@@ -1,6 +1,6 @@
 nav {
-  height: 95px;
-background-color: black;
+  height: 10vh;
+background-color: salmon;
   
   display: flex;
   justify-content: center;
@@ -23,21 +23,20 @@ main {
   text-align: center;
   height: 450px;
   padding: 15px;
+  background-color: purple;
 }
 
 .panel1 {
   padding: 10px;
-  border-style: solid;
-  border-radius: 10px;
-  background-color: #028090;
+  /* border-style: solid;
+  border-radius: 10px; */
+  /* background-color: purple; */
   width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  background-color: black;
+  /* justify-content: flex-start; */
+  /* background-color: black; */
 }
-
-
 
 
 /* .panel2 {
@@ -48,7 +47,7 @@ main {
   flex-wrap: wrap;
   align-items: column;
   justify-content: space-between;
-} */
+} */ */ */
 
 /* #map { 
   height: 350px; 
@@ -57,11 +56,12 @@ main {
 } */
 
 footer {
-  background-color: #2B2D42;
-  padding: 10px;
+  background-color: green;
+  /* padding: 10px; */
   display: flex;
-  flex-direction: flex-start;
+  flex-direction: flex-end;
   justify-content: space-around;
+
 }
 
 
