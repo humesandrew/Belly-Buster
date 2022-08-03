@@ -22,7 +22,7 @@
     This project is licensed under humesandrew. 
 
   ## Contributing
-    This project was made by Andy Humes. The project employees the GoogleMaps API and OpenBrewery API. 
+    This project was made by Andy Humes. The project employs the GoogleMaps API and OpenBrewery API. 
 
   ## Questions
 
