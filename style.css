@@ -1,4 +1,5 @@
 nav {
+
   height: 7vh;
   background-color: rgb(169, 209, 47);
 
@@ -9,11 +10,32 @@ background-color: black;
 
   align-items: center;
   
+
+  height: 10vh;
+background-color: salmon;
+  
+  display: flex;
+  justify-content: right;
+
+  border-style: solid;
+  border-color: #534D56;
+
+  font-family: 'Abril Fatface', cursive;
+font-family: 'Open Sans', sans-serif;
+margin: 10%;
+padding-right: 20px;
+
 }
 
 main {
   background-color: #2B2D42;
 
+
+
+
+  height: 100%;
+  font-family: 'Abril Fatface', cursive;
+font-family: 'Open Sans', sans-serif;
 
 }
 
@@ -25,23 +47,29 @@ main {
   height: 450px;
   padding: 15px;
 
+
   
+  background-color: purple;
+
 }
 
 /* .panel1 {
   padding: 10px;
-  border-style: solid;
-  border-radius: 10px;
-  background-color: #028090;
+  /* border-style: solid;
+  border-radius: 10px; */
+  /* background-color: purple; */
   width: 300px;
   display: flex;
   flex-direction: column;
+
   justify-content: flex-start;
   background-color: black;
+
+  /* justify-content: flex-start; */
+  /* background-color: black; */
+
 }
  */
-
-
 
 /* .panel2 {
   border-style: solid;
@@ -51,7 +79,7 @@ main {
   flex-wrap: wrap;
   align-items: column;
   justify-content: space-between;
-} */
+} */ */ */
 
 /* #map { 
   height: 350px; 
@@ -60,11 +88,13 @@ main {
 } */
 
 footer {
-  background-color: #2B2D42;
-  padding: 10px;
+  background-color: green;
+  /* padding: 10px; */
   display: flex;
-  flex-direction: flex-start;
+  flex-direction: flex-end;
   justify-content: space-around;
+  font-family: 'Abril Fatface', cursive;
+  font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -77,10 +107,16 @@ footer {
   background-image: url("https://www.piedmont.org/living-better/_controls/media/BlogImages/iStock_000049664402_470x260.jpg");
   padding: 20px;
   height: 20px;
+  overflow: scroll;
 }
+
 
 
 html{
   scroll-behavior: smooth;
 
-}
+};
+
+
+
+

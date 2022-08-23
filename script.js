@@ -1,6 +1,6 @@
 function getBeers() {
   fetch(
-    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" + cityInput.value + "&per_page=10",
+    "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" + cityInput.value,
     {
       method: "GET",
       headers: {
