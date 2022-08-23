@@ -16,7 +16,7 @@
   
 
   ## Usage
-    Type the name of the city where you'd like to see breweries then click submit. Note- at this time, Belly-Buster is only available for cities in the United States. You can access previous searches in the footer, just click on the city to return to it. The map is fully interactive, using Google Maps. 
+  Type the name of the city where you'd like to see breweries then click submit. Note: at this time, Belly-Buster is only available for cities in the United States. You can access previous searches in the footer, just click on the city to return to it. The map is fully interactive, using Google Maps. 
 
   ## License
     This project is licensed under humesandrew. 
