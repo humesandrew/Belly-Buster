@@ -1,31 +1,33 @@
 nav {
-  height: 95px;
-  background-color: #FF8360;
+  height: 7vh;
+  background-color: rgb(169, 209, 47);
   
   display: flex;
-  justify-content: center;
-  text-align: center;
-  border-style: solid;
-  border-color: #534D56;
+
+
   align-items: center;
+
   
 }
 
 main {
   background-color: #2B2D42;
-  height: 100%;
+
+
 }
 
 .panels {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: column;
   text-align: center;
   height: 450px;
   padding: 15px;
+
+  
 }
 
-.panel1 {
+/* .panel1 {
   padding: 10px;
   border-style: solid;
   border-radius: 10px;
@@ -35,7 +37,7 @@ main {
   flex-direction: column;
   justify-content: flex-start;
 }
-
+ */
 
 
 
